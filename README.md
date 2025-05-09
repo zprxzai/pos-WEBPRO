@@ -5,12 +5,14 @@ POS atau kepanjangan dari <i>Poin Of Sales</i> merupakan aplikasi berbasis websi
 - pengelolaan data pelanggan
 - pengelolaan transaksi penjualan
 - pengelolaan data kasir
+- view kategori
+- tambah data kategori
+- edit data kategori
 
 ## Fitur
 
 Fitur yang dimiliki untuk saat ini yaitu :
-- view kategori
-- lihat data kategori
+- view produk
 
 # Hasil
 Untuk hasil ada [disini](https://docs.google.com/presentation/d/1u4M3RJaJGzc2oXyrq1tsXHKlQwMjyI6-Kpv5MX8qhOk/edit?usp=sharing)
