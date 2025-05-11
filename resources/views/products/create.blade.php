@@ -41,7 +41,7 @@
                                 @endif
                             </div>
                             ​
-                            <form role="form" action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
+                            <form role="form" action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <input type="text" name="code" class="form-control {{ $errors->has('code') ? 'is-invalid' : '' }}" id="code" placeholder="Kode Produk" required autofocus>

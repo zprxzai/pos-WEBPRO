@@ -39,19 +39,43 @@
                                 </div>
                             @endif
 
-                            <form role="form" action="{{ route('categories.update', $categories->id) }}" method="POST">
+                            <form role="form" action="{{ route('products.update', $product->id) }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="_method" value="PUT">
+                                <div class="form-group">
+                                    <input type="text" name="code"  value="{{ $product->code }}"class="form-control {{ $errors->has('code') ? 'is-invalid' : '' }}" id="code" placeholder="Kode Produk" required autofocus>
+                                </div>   
                                 <div class="form-group">
                                     <label for="name">Kategori</label>
                                     <input type="text" 
                                         name="name"
-                                        value="{{ $categories->name }}"
+                                        value="{{ $product->name }}"
                                         class="form-control {{ $errors->has('name') ? 'is-invalid':'' }}" id="name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Deskripsi</label>
-                                    <textarea name="description" id="description" cols="5" rows="5" class="form-control {{ $errors->has('description') ? 'is-invalid':'' }}">{{ $categories->description }}</textarea>
+                                    <textarea name="description" id="description" cols="5" rows="5" class="form-control {{ $errors->has('description') ? 'is-invalid':'' }}">{{ $product->description }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" name="stock" value="{{ $product->stock }}" class="form-control {{ $errors->has('stock') ? 'is-invalid' : '' }}" id="stock" placeholder="Stok" required autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" name="price" value="{{ $product->price }}" class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" id="price" placeholder="Harga" required autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <select name="category_id" id="category_id" value="{{ $product->category_id }}"
+                                        required class="form-control {{ $errors->has('price') ? 'is-invalid':'' }}">
+                                        <option value="">Pilih Kategori</option>
+                                        @foreach ($categories as $row)
+                                            <option value="{{ $row->id }}">{{ ucfirst($row->name) }}</option>
+                                        @endforeach
+                                    </select>
+                                    <p class="text-danger">{{ $errors->first('category_id') }}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Foto</label>
+                                    <input type="file" name="photo" class="form-control" value="{{ $product->photo }}"> 
+                                    <p class="text-danger">{{ $errors->first('photo') }}</p>
                                 </div>
                                 <div class="card-footer">
                                     <button class="btn btn-info">Update</button>
