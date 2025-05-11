@@ -1,9 +1,8 @@
 @extends('layouts.master')
 
 @section('title')
-    <title>Manajemen Kategori</title>
+    Manajemen Kategori
 @endsection
-
 @section('content')
     <div class="content-wrapper">
         <div class="content-header">
@@ -32,10 +31,12 @@
                             </div>
                             
                             @if (session('error'))
-                                @alert(['type' => 'danger'])
-                                    {!! session('error') !!}
-                                @endalert
-                            @endif
+                                <div class="card-body">
+                                    <div class="alert alert-danger alert-dismissible">
+                                        {!! session('error') !!}
+                                    </div>
+                                </div>
+                                @endif
 
                             <form role="form" action="{{ route('categories.store') }}" method="POST">
                                 @csrf
@@ -51,6 +52,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button class="btn btn-primary">Simpan</button>
+                                    <input type="reset" class="btn btn-md btn-warning pull-right">
                                 </div>
                             </form>
                         </div>
@@ -62,10 +64,12 @@
                             </div>
                             
                             @if (session('success'))
-                                @alert(['type' => 'success'])
-                                    {!! session('success') !!}
-                                @endalert
-                            @endif
+                                <div class="card-body">
+                                    <div class="alert alert-success alert-dismissible">
+                                        {!! session('success') !!}
+                                    </div>
+                                </div>
+                                @endif
                             
                             <div class="table-responsive">
                                 <table class="table table-hover">
@@ -88,8 +92,8 @@
                                                 <form action="{{ route('categories.destroy', $row->id) }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <a href="{{ route('categories.edit', $row->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                                    <a href="{{ route('categories.edit', $row->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i>Edit</a>
+                                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>Hapus</button>
                                                 </form>
                                             </td>
                                         </tr>

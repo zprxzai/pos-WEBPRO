@@ -81,8 +81,8 @@
                                                     <form action="{{ route('products.destroy', $row->id) }} " onsubmit="return confirm('Apakah Anda Yakin ?');" method="POST">
                                                         @csrf
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <a href="{{ route('products.edit', $row->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                                        <a href="{{ route('products.edit', $row->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i>Edit</a>
+                                                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>Hapus</button>
                                                     </form>
                                                 </td>
                                             </tr>

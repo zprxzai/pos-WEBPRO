@@ -1,7 +1,7 @@
 @extends('layouts.master')
 ​
 @section('title')
-    <title>Edit Kategori</title>
+    Edit Kategori
 @endsection
 ​
 @section('content')
@@ -27,7 +27,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        @card
+                        
                             @slot('title')
                             Edit
                             @endslot
@@ -52,13 +52,15 @@
                                     <label for="description">Deskripsi</label>
                                     <textarea name="description" id="description" cols="5" rows="5" class="form-control {{ $errors->has('description') ? 'is-invalid':'' }}">{{ $categories->description }}</textarea>
                                 </div>
-                            @slot('footer')
+                            
                                 <div class="card-footer">
                                     <button class="btn btn-info">Update</button>
+                                    <input type="reset" class="btn btn-md btn-warning pull-right">
                                 </div>
+                            
                             </form>
-                            @endslot
-                        @endcard
+                         
+                        
                     </div>
                 </div>
             </div>
